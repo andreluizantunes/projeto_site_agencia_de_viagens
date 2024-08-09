@@ -1,6 +1,3 @@
-# Repositório
- Primeiro repositório do curso de Git e GitHub.
+# Site ficticio de uma agência de viagens
 
- Repositório criado em um curso.
-
-Está linha eu adicionei diretamente no site.
+ Tecnologias ultilizadas: HTML e CSS (um pouco de JavaScript).
