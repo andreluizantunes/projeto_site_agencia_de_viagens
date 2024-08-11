@@ -51,56 +51,41 @@
     </div>
     </section>
 
-<section id="gallery" class="grid-one white-bg section">
-    <div class="main-content grid-one-content">
-        <h2 class="grid-main-heading">Nossos Tours</h2>
-        <p class="grid-description">Escolha entre uma variedade de tours personalizados para viver a aventura dos seus sonhos.</p>
+    <section id="gallery" class="grid-one white-bg section">
+        <div class="main-content grid-one-content">
+            <h2 class="grid-main-heading">Nossos Tours</h2>
+            <p class="grid-description">Escolha entre uma variedade de tours personalizados para viver a aventura dos seus sonhos.</p>
+        
+            <div class="image-carousel">
+                <button class="carousel-control prev">◀</button>
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
+                        <li class="gallery-img">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_1280.jpg" alt="Na imagem: foto da torre Eiffel em Pais, França" />
+                        </li>
+                        <li class="gallery-img">
+                            <img src="https://cdn.pixabay.com/photo/2019/07/19/05/40/rio-4348017_1280.jpg" alt="Na imagem: do Pão de açucar, montanha do Rio de Janeiro, Brasil" />
+                        </li>
+                        <li class="gallery-img">
+                            <img src="https://cdn.pixabay.com/photo/2020/08/10/01/28/castle-5476737_1280.jpg" alt="Na imagem: um Templo Japonês em uma montanha" />
+                        </li>
+                        <li class="gallery-img">
+                            <img src="https://cdn.pixabay.com/photo/2021/07/08/03/55/mount-everest-6395759_1280.jpg" alt="Na imagem: uma pessoa sobe ao Monte Everest" />
+                        </li>
+                        <li class="gallery-img">
+                            <img src="https://cdn.pixabay.com/photo/2014/06/06/09/36/sydney-opera-house-363244_1280.jpg" alt="Na imagem: Teatro de Sidney, Austrália" />
+                        </li>
+                        <li class="gallery-img">
+                            <img src="https://cdn.pixabay.com/photo/2019/10/27/18/48/skyline-4582510_1280.jpg" alt="Na imagem: foto aérea da cidade de Nova York" />
+                        </li>
+                    </ul>
+                </div>
+                <button class="carousel-control next">▶</button>
+            </div>
+        </div>
+    </section>
     
-        <div class="grid">
-        <div class="gallery-img">
-            <img src="https://cdn.pixabay.com/photo/2015/10/06/18/26/eiffel-tower-975004_1280.jpg" alt="Na imagem: foto da torre Eiffel em Pais, França" />
-            <div class="overlay">
-                <div class="text">Tour em Paris</div>
-                <a href="#" class="btn-more">Saiba Mais</a>
-            </div>
-        </div>
-        <div class="gallery-img">
-            <img src="https://cdn.pixabay.com/photo/2019/07/19/05/40/rio-4348017_1280.jpg" alt="Na imagem: do Pão de açucar, montanha do Rio de Janeiro, Brasil" />
-            <div class="overlay">
-                <div class="text">Tour no Rio</div>
-                <a href="#" class="btn-more">Saiba Mais</a>
-            </div>
-        </div>
-        <div class="gallery-img">
-            <img src="https://cdn.pixabay.com/photo/2020/08/10/01/28/castle-5476737_1280.jpg" alt="Na imagem: um Templo Japonês em uma montanha" />
-            <div class="overlay">
-                <div class="text">Tour no Japão</div>
-                <a href="#" class="btn-more">Saiba Mais</a>
-            </div>
-        </div>
-        <div class="gallery-img">
-            <img src="https://cdn.pixabay.com/photo/2021/07/08/03/55/mount-everest-6395759_1280.jpg" alt="Na imagem: uma pessoa sobe ao Monte Everest" />
-            <div class="overlay">
-                <div class="text">Expedição Everest</div>
-                <a href="#" class="btn-more">Saiba Mais</a>
-            </div>
-        </div>
-        <div class="gallery-img">
-            <img src="https://cdn.pixabay.com/photo/2014/06/06/09/36/sydney-opera-house-363244_1280.jpg" alt="Na imagem: Teatro de Sidney, Austrália" />
-            <div class="overlay">
-                <div class="text">Tuor Austrália</div>
-                <a href="#" class="btn-more">Saiba Mais</a>
-            </div>
-        </div>
-        <div class="gallery-img">
-            <img src="https://cdn.pixabay.com/photo/2019/10/27/18/48/skyline-4582510_1280.jpg" alt="Na imagem: foto aérea da cidade de Nova York" />
-            <div class="overlay">
-                <div class="text">Tour Nova York</div>
-                <a href="#" class="btn-more">Saiba Mais</a>
-            </div>
-        </div>
-        </div>
-    </div>
+    
     </section>
 
     <section id="grid-two" class="grid-one main-bg section">
@@ -247,6 +232,31 @@
     </footer>
 
     <a class="back-to-top" href="#">&#9992;</a>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+let currentSlideIndex = 0;
+
+const updateSlidePosition = () => {
+    const trackWidth = track.getBoundingClientRect().width;
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${slideWidth * currentSlideIndex}px)`;
+};
+
+nextButton.addEventListener('click', () => {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    updateSlidePosition();
+});
+
+prevButton.addEventListener('click', () => {
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+});
+
+    </script>
 </body>
 
 </html>
